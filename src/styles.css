@@ -5,6 +5,14 @@
   font-family: "Roboto Mono", monospace;
 }
 
+.d-flex {
+  display:flex;
+}
+
+.w-100 {
+  width:100%;
+}
+
 .App {
   margin: 5px;
   -webkit-touch-callout: none; /* iOS Safari */

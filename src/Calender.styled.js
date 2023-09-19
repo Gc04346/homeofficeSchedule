@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   border: 1px solid;
   height: 99vh;
+  width: 100%;
 `;
 
 export const StyledEvent = styled.span`

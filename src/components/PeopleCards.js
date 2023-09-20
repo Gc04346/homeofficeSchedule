@@ -2,11 +2,9 @@ import {useRef, useState} from "react";
 import {SeeMore, StyledEvent} from "../Calender.styled";
 import {PersonCard} from "./PersonCard";
 
-const PeopleCards = ({name, homeOffices, color, dragindexRef}) => {
+const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, events, setEvents}) => {
 
-    const drag = (index, e) => {
-        dragindexRef.current = {index, target: e.target, name: name, color: color};
-    };
+
 
     const EventWrapper = ({children}) => {
         if (children.filter((child) => child).length)
@@ -37,7 +35,7 @@ const PeopleCards = ({name, homeOffices, color, dragindexRef}) => {
                     [...Array(homeOffices)].map(
                         // for every person
                         //  background: ${({ bgColor }) => bgColor};
-                        (homeOffice, index) => <PersonCard name={name} color={color} drag={drag} index={index}/>
+                        (homeOffice, index) => <PersonCard name={name} color={color} dragindexRef={dragindexRef} index={index} dragDateRef={dragDateRef} events={events} setEvents={setEvents}/>
                     )
                 }
             </EventWrapper>

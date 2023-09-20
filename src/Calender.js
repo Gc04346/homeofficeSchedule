@@ -22,10 +22,8 @@ import {
 } from "./utils";
 import {Sidebar} from "./components/Sidebar";
 
-export const Calender = ({dragindexRef}) => {
+export const Calender = ({dragindexRef, dragDateRef, events, setEvents}) => {
     const [currentDate, setCurrentDate] = useState(new Date());
-    const [events, setEvents] = useState(MOCKAPPS);
-    const dragDateRef = useRef();
     const [showPortal, setShowPortal] = useState(false);
     const [portalData, setPortalData] = useState({});
 
@@ -54,7 +52,6 @@ export const Calender = ({dragindexRef}) => {
     };
 
     const drop = (ev) => {
-        console.log('oi')
         ev.preventDefault();
         // then create it
         setEvents((prev) =>

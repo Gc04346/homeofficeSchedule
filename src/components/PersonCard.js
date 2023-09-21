@@ -1,8 +1,9 @@
 import {StyledEvent} from "../Calender.styled";
 import Button from "bootstrap/js/src/button";
+import {useEffect, useState} from "react";
 
-const PersonCard = ({name, color, index, dragindexRef, dragDateRef, events, setEvents}) => {
-
+const PersonCard = ({name, color, index, dragindexRef, dragDateRef, events, setEvents, homeOfficesAmount, setHomeOfficesLeft}) => {
+    const [personHomeofficesUsed, setPersonHomeofficesUsed] = useState(0);
     const drag = (index, e) => {
         dragindexRef.current = {index, target: e.target, name: name, color: color};
     };
@@ -20,6 +21,17 @@ const PersonCard = ({name, color, index, dragindexRef, dragDateRef, events, setE
         }
 
     }
+
+    useEffect(() => {
+        if (personHomeofficesUsed)
+        setHomeOfficesLeft(homeOfficesAmount - personHomeofficesUsed)
+        // console.log({personHomeofficesUsed}, {name})
+    }, [personHomeofficesUsed]);
+
+    useEffect(() => {
+        console.log(name, events.filter(event => event.title===name).length)
+        setPersonHomeofficesUsed(events.filter(event => event.title===name).length)
+    }, [events]);
 
 
     return (

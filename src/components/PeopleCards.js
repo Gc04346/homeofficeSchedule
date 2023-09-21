@@ -1,10 +1,10 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {SeeMore, StyledEvent} from "../Calender.styled";
 import {PersonCard} from "./PersonCard";
 
-const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, events, setEvents}) => {
+const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, events, setEvents, spendHomeOffice}) => {
 
-
+    const [homeOfficesLeft, setHomeOfficesLeft] = useState(homeOffices);
 
     const EventWrapper = ({children}) => {
         if (children.filter((child) => child).length)
@@ -14,6 +14,8 @@ const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, event
                 </>
             );
     };
+
+    // useEffect(() => console.log({homeOfficesLeft}), [{homeOfficesLeft}]);
 
 
     return (
@@ -32,10 +34,10 @@ const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, event
             <EventWrapper>
                 {
                     // for every homeoffice
-                    [...Array(homeOffices)].map(
+                    [...Array(homeOfficesLeft)].map(
                         // for every person
                         //  background: ${({ bgColor }) => bgColor};
-                        (homeOffice, index) => <PersonCard name={name} color={color} dragindexRef={dragindexRef} index={index} dragDateRef={dragDateRef} events={events} setEvents={setEvents}/>
+                        (homeOffice, index) => <PersonCard name={name} homeOfficesAmount={homeOffices} setHomeOfficesLeft={setHomeOfficesLeft} spendHomeOffice={spendHomeOffice} color={color} dragindexRef={dragindexRef} index={index} dragDateRef={dragDateRef} events={events} setEvents={setEvents}/>
                     )
                 }
             </EventWrapper>

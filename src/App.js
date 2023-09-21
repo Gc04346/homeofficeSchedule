@@ -1,14 +1,12 @@
 import {Calender} from "./Calender";
 import {Sidebar} from "./components/Sidebar";
 import "./styles.css";
-import {useEffect, useRef, useState} from "react";
-import {MOCKAPPS} from "./conts";
+import { useRef, useState} from "react";
 
 export default function App() {
     const dragindexRef = useRef();
     const dragDateRef = useRef();
-    const [events, setEvents] = useState(MOCKAPPS);
-
+    const [events, setEvents] = useState([]);
 
     return (
         <div className="d-flex w-100">

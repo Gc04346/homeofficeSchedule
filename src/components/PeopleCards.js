@@ -6,6 +6,11 @@ const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, event
 
     const [homeOfficesLeft, setHomeOfficesLeft] = useState(homeOffices);
 
+    useEffect(() => {
+        console.log(homeOffices)
+        setHomeOfficesLeft(homeOffices);
+    }, [homeOffices]);
+
     const EventWrapper = ({children}) => {
         if (children.filter((child) => child).length)
             return (
@@ -14,9 +19,6 @@ const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, event
                 </>
             );
     };
-
-    // useEffect(() => console.log({homeOfficesLeft}), [{homeOfficesLeft}]);
-
 
     return (
         // For every Homeoffice there should be a card of every person for example if there are Daniel and Vinicius

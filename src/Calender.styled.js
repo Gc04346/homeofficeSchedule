@@ -26,13 +26,15 @@ export const SevenColGrid = styled.div`
     props.fullheight &&
     `grid-template-rows: repeat(${props.is28Days ? 4 : 5}, 1fr);`}
   div {
-    display: grid;
-    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #27415E;
     ${StyledEvent} {
       display: none;
     }
     ${StyledEvent}:nth-child(-n + 3) {
       display: block;
+      margin-bottom: 5px;
     }
 
     span {
@@ -42,12 +44,13 @@ export const SevenColGrid = styled.div`
     }
 
     span.active {
-      background-color: pink;
-      border-bottom: 2px solid red;
+      background-color: #27415E;
+      color: #DDAE3A;
+      border-bottom: 2px solid #DDAE3A;
       position: relative;
     }
     span.active::before {
-      content: "Today ";
+      content: "(Hoje) ";
       font-size: 14px;
     }
   }
@@ -58,7 +61,7 @@ export const HeadDays = styled.span`
   border: 1px solid;
   height: 30px;
   padding: 5px;
-  background: darkolivegreen;
+  background: #ddae3a;
   color: white;
 `;
 
@@ -68,11 +71,8 @@ export const DateControls = styled.div`
   justify-content: space-around;
   padding: 10px 0;
   align-items: center;
-
-  ion-icon {
-    font-size: 1.6rem;
-    cursor: pointer;
-  }
+  background-color: #27415E;
+  color: white;
 `;
 
 export const SeeMore = styled.p`

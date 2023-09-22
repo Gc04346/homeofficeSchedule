@@ -82,15 +82,7 @@ export const Calender = ({dragindexRef, dragDateRef, events, setEvents}) => {
 
         <Wrapper>
             <DateControls>
-                <ion-icon
-                    onClick={() => prevMonth(currentDate, setCurrentDate)}
-                    name="arrow-back-circle-outline"
-                ></ion-icon>
                 {getMonthYear(currentDate)}
-                <ion-icon
-                    onClick={() => nextMonth(currentDate, setCurrentDate)}
-                    name="arrow-forward-circle-outline"
-                ></ion-icon>
             </DateControls>
             <SevenColGrid>
                 {DAYS.map((day) => (
@@ -120,14 +112,7 @@ export const Calender = ({dragindexRef, dragDateRef, events, setEvents}) => {
                         }}
                         onDragEnd={(e) => drop(e)}
                         onClick={(e) =>
-                            addEvent(
-                                new Date(
-                                    currentDate.getFullYear(),
-                                    currentDate.getMonth(),
-                                    day
-                                ),
-                                e
-                            )
+                            e.preventDefault()
                         }
                     >
             <span
@@ -159,7 +144,6 @@ export const Calender = ({dragindexRef, dragDateRef, events, setEvents}) => {
                                     ) && (
                                         <StyledEvent
                                             onDragStart={(e) => drag(index, e)}
-                                            onClick={() => handleOnClickEvent(ev)}
                                             draggable
                                             className="StyledEvent"
                                             id={`${ev.color} ${ev.title}`}

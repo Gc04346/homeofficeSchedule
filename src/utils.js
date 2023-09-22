@@ -27,8 +27,17 @@ export const datesAreOnSameDay = (first, second) =>
   first.getDate() === second.getDate();
 
 export const getMonthYear = (date) => {
-  const d = date.toDateString().split(" ");
-  return `${d[1]} ${d[3]}`;
+  const months = [
+    "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+    "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+  ];
+
+  const monthIndex = date.getMonth(); // Get the month index (0-11)
+  const year = date.getFullYear(); // Get the full year
+
+  const monthName = months[monthIndex]; // Get the Portuguese month name
+
+  return `${monthName} ${year}`;
 };
 
 export const nextMonth = (date, cb) => {

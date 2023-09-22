@@ -10,7 +10,6 @@ const PersonCard = ({name, color, index, dragindexRef, dragDateRef, events, setE
 
     const onDragEnd = (date, e) => {
         e.preventDefault();
-        console.log(dragDateRef.current.date)
         // if there is a name in dragindexRef.current then create a new event
         // if there is not a name in dragindexRef.current then do nothing
         if(dragindexRef.current.name){
@@ -25,11 +24,9 @@ const PersonCard = ({name, color, index, dragindexRef, dragDateRef, events, setE
     useEffect(() => {
         if (personHomeofficesUsed)
         setHomeOfficesLeft(homeOfficesAmount - personHomeofficesUsed)
-        // console.log({personHomeofficesUsed}, {name})
     }, [personHomeofficesUsed]);
 
     useEffect(() => {
-        console.log(name, events.filter(event => event.title===name).length)
         setPersonHomeofficesUsed(events.filter(event => event.title===name).length)
     }, [events]);
 

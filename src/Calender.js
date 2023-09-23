@@ -73,7 +73,7 @@ export const Calender = ({dragindexRef, dragDateRef, events, setEvents}) => {
 
     const handleDelete = () => {
         setEvents((prevEvents) =>
-            prevEvents.filter((ev) => ev.title !== portalData.title)
+            prevEvents.filter((ev) => ev.date !== portalData.date)
         );
         handlePotalClose();
     };
@@ -144,6 +144,7 @@ export const Calender = ({dragindexRef, dragDateRef, events, setEvents}) => {
                                     ) && (
                                         <StyledEvent
                                             onDragStart={(e) => drag(index, e)}
+                                            onClick={() => handleOnClickEvent(ev)}
                                             draggable
                                             className="StyledEvent"
                                             id={`${ev.color} ${ev.title}`}
@@ -184,8 +185,8 @@ const Portal = ({title, date, handleDelete, handlePotalClose}) => {
         <PortalWrapper>
             <h2>{title}</h2>
             <p>{date.toDateString()}</p>
-            <ion-icon onClick={handleDelete} name="trash-outline"></ion-icon>
-            <ion-icon onClick={handlePotalClose} name="close-outline"></ion-icon>
+            <ion-icon onClick={handleDelete} name="trash-outline">Remover Home Office</ion-icon>
+            <ion-icon onClick={handlePotalClose} name="close-outline">x</ion-icon>
         </PortalWrapper>
     );
 };

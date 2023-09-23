@@ -6,7 +6,6 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
     // For each name there should be a list of n cards that represents the home offices of that person in that month
     // The cards should be draggable and droppable
     // The cards should be able to be removed
-    const [homeOfficesAmount, setHomeOfficesAmount] = useState(8);
 
     const getColor = () => {
         // Define the maximum color value (hexadecimal FFFFFF, white)
@@ -22,7 +21,10 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
         return randomColor;
     };
 
-    const [people, setPeople] = useState([
+    const getInitialPeople = () => {
+        let lsPeople = localStorage.getItem('ho-people')
+        if (lsPeople) return JSON.parse(lsPeople)
+        return [
         {name: 'João V.', color: getColor(), homeOfficesLeft: 8},
         {name: 'Daniel', color: getColor(), homeOfficesLeft: 8},
         {name: 'Isaque', color: getColor(), homeOfficesLeft: 8},
@@ -30,14 +32,32 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
         {name: 'Vinicius', color: getColor(), homeOfficesLeft: 8},
         {name: 'Vitão', color: getColor(), homeOfficesLeft: 8},
         {name: 'Ricardinho', color: getColor(), homeOfficesLeft: 8},
-    ]);
+    ]
+    }
+
+    const getInitialHomeOfficesAmount = () => {
+        let lshomeOfficesAmount = localStorage.getItem('ho-homeOfficesAmount')
+        if (lshomeOfficesAmount) return JSON.parse(lshomeOfficesAmount)
+        return 8
+    }
+
+    const [homeOfficesAmount, setHomeOfficesAmount] = useState(getInitialHomeOfficesAmount);
+    const [people, setPeople] = useState(getInitialPeople);
+    const [firstRun, setFirstRun] = useState(true);
 
     useEffect(() => {
         let tempPeople = [...people];
         tempPeople.forEach(person => person.homeOfficesLeft = homeOfficesAmount)
         setPeople(tempPeople)
-        setEvents([])
+        if (firstRun) setFirstRun(false)
+        else setEvents([])
     }, [homeOfficesAmount]);
+
+    useEffect(() => {
+        localStorage.setItem('ho-homeOfficesAmount', JSON.stringify(homeOfficesAmount))
+        localStorage.setItem('ho-people', JSON.stringify(people))
+        localStorage.setItem('ho-events', JSON.stringify(events))
+    }, [homeOfficesAmount, people, events]);
 
     const spendHomeOffice = (personName) => {
         let tempPeople = [...people]

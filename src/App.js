@@ -6,7 +6,18 @@ import { useRef, useState} from "react";
 export default function App() {
     const dragindexRef = useRef();
     const dragDateRef = useRef();
-    const [events, setEvents] = useState([]);
+
+    const getInitialEvents = () => {
+        let lsevents = localStorage.getItem('ho-events');
+        if (lsevents) {
+            let parsedEvents = JSON.parse(lsevents);
+            parsedEvents.forEach(ev => ev.date = new Date(ev.date));
+            return parsedEvents;
+        }
+        return [];
+    }
+
+    const [events, setEvents] = useState(getInitialEvents);
 
     return (
         <div className="d-flex w-100">

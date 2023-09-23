@@ -7,7 +7,6 @@ const PeopleCards = ({name, homeOffices, color, dragindexRef, dragDateRef, event
     const [homeOfficesLeft, setHomeOfficesLeft] = useState(homeOffices);
 
     useEffect(() => {
-        console.log(homeOffices)
         setHomeOfficesLeft(homeOffices);
     }, [homeOffices]);
 

@@ -29,13 +29,6 @@ export const SevenColGrid = styled.div`
     display: flex;
     flex-direction: column;
     border: 1px solid #27415E;
-    ${StyledEvent} {
-      display: none;
-    }
-    ${StyledEvent}:nth-child(-n + 3) {
-      display: block;
-      margin-bottom: 5px;
-    }
 
     span {
       text-align: right;

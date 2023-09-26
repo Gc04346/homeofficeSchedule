@@ -72,7 +72,7 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            height: '50%',
+            height: 'calc(100vh - 10px)',
             maxWidth: '20%',
         }}>
             <div style={{
@@ -90,6 +90,13 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
                 }}/>
             <span>Home Offices a distribuir:</span>
                 </div>
+            <div style={{
+                display: 'flex',
+            flexDirection: 'column',
+                alignItems: "center",
+                overflowY: "scroll",
+                maxHeight: "100vh"
+            }}>
             {
                 // Every card should be on the vertical
                 // For each person
@@ -101,6 +108,7 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
                                            setEvents={setEvents}/>
                 )
             }
+            </div>
 
         </div>
 

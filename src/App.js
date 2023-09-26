@@ -20,7 +20,10 @@ export default function App() {
     const [events, setEvents] = useState(getInitialEvents);
 
     return (
-        <div className="d-flex w-100">
+        <div style={{
+            display: "flex",
+            maxHeight: "100vh"
+        }}>
             <Sidebar dragindexRef={dragindexRef} dragDateRef={dragDateRef} events={events} setEvents={setEvents}/>
             <Calender dragindexRef={dragindexRef} dragDateRef={dragDateRef} events={events} setEvents={setEvents}/>
         </div>

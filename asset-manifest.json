@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/homeofficeSchedule/static/css/main.7ae76546.css",
-    "main.js": "/homeofficeSchedule/static/js/main.e0adb0be.js",
+    "main.js": "/homeofficeSchedule/static/js/main.60d3dd02.js",
     "index.html": "/homeofficeSchedule/index.html",
     "main.7ae76546.css.map": "/homeofficeSchedule/static/css/main.7ae76546.css.map",
-    "main.e0adb0be.js.map": "/homeofficeSchedule/static/js/main.e0adb0be.js.map"
+    "main.60d3dd02.js.map": "/homeofficeSchedule/static/js/main.60d3dd02.js.map"
   },
   "entrypoints": [
     "static/css/main.7ae76546.css",
-    "static/js/main.e0adb0be.js"
+    "static/js/main.60d3dd02.js"
   ]
 }

@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/homeofficeSchedule/static/css/main.7ae76546.css",
+    "main.js": "/homeofficeSchedule/static/js/main.e0adb0be.js",
+    "index.html": "/homeofficeSchedule/index.html",
+    "main.7ae76546.css.map": "/homeofficeSchedule/static/css/main.7ae76546.css.map",
+    "main.e0adb0be.js.map": "/homeofficeSchedule/static/js/main.e0adb0be.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ae76546.css",
+    "static/js/main.e0adb0be.js"
+  ]
+}

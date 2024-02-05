@@ -28,7 +28,7 @@ const Sidebar = ({dragindexRef, dragDateRef, events, setEvents}) => {
         {name: 'João V.', color: getColor(), homeOfficesLeft: 8},
         {name: 'Daniel', color: getColor(), homeOfficesLeft: 8},
         {name: 'Isaque', color: getColor(), homeOfficesLeft: 8},
-        {name: 'Matheusin', color: getColor(), homeOfficesLeft: 8},
+        {name: 'Laura', color: getColor(), homeOfficesLeft: 8},
         {name: 'Vinicius', color: getColor(), homeOfficesLeft: 8},
         {name: 'Vitão', color: getColor(), homeOfficesLeft: 8},
         {name: 'Ricardinho', color: getColor(), homeOfficesLeft: 8},
